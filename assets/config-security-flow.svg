@@ -1,0 +1,85 @@
+<svg width="1600" height="940" viewBox="0 0 1600 940" fill="none" xmlns="http://www.w3.org/2000/svg">
+<defs>
+  <linearGradient id="bg" x1="0" y1="0" x2="1600" y2="940">
+    <stop stop-color="#071523"/>
+    <stop offset="1" stop-color="#0B2740"/>
+  </linearGradient>
+  <linearGradient id="panel" x1="0" y1="0" x2="1" y2="1">
+    <stop stop-color="#112F48"/>
+    <stop offset="1" stop-color="#0C2134"/>
+  </linearGradient>
+  <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+    <feDropShadow dx="0" dy="12" stdDeviation="18" flood-color="#02111E" flood-opacity="0.45"/>
+  </filter>
+  <marker id="arrow" markerWidth="14" markerHeight="14" refX="11" refY="7" orient="auto">
+    <path d="M0,0 L14,7 L0,14 z" fill="#62A7D7"/>
+  </marker>
+</defs>
+<rect width="1600" height="940" rx="28" fill="url(#bg)"/>
+<text x="74" y="76" fill="white" font-family="Segoe UI, Arial, sans-serif" font-size="36" font-weight="800">Azure VM Manager — Config and Security Flow</text>
+<text x="74" y="116" fill="#9EC2DD" font-family="Segoe UI, Arial, sans-serif" font-size="20">How VM metadata becomes reusable JSON artifacts, encrypted exports, and reconstruction-ready full exports.</text>
+
+<g filter="url(#shadow)">
+  <rect x="82" y="180" width="330" height="206" rx="24" fill="url(#panel)" stroke="#28506F"/>
+  <text x="114" y="224" fill="#9BD9FF" font-family="Segoe UI, Arial, sans-serif" font-size="24" font-weight="800">Source Data</text>
+  <text x="114" y="266" fill="#A7C0D4" font-family="Segoe UI, Arial, sans-serif" font-size="17">- Selected VM</text>
+  <text x="114" y="298" fill="#A7C0D4" font-family="Segoe UI, Arial, sans-serif" font-size="17">- Inventory across subscriptions</text>
+  <text x="114" y="330" fill="#A7C0D4" font-family="Segoe UI, Arial, sans-serif" font-size="17">- Full VM resource + instance view</text>
+  <text x="114" y="362" fill="#A7C0D4" font-family="Segoe UI, Arial, sans-serif" font-size="17">- Network and storage dependencies</text>
+</g>
+
+<g filter="url(#shadow)">
+  <rect x="482" y="180" width="330" height="206" rx="24" fill="url(#panel)" stroke="#28506F"/>
+  <text x="514" y="224" fill="#9BD9FF" font-family="Segoe UI, Arial, sans-serif" font-size="24" font-weight="800">Payload Builders</text>
+  <text x="514" y="266" fill="#A7C0D4" font-family="Segoe UI, Arial, sans-serif" font-size="17">- Start config</text>
+  <text x="514" y="298" fill="#A7C0D4" font-family="Segoe UI, Arial, sans-serif" font-size="17">- Stop config</text>
+  <text x="514" y="330" fill="#A7C0D4" font-family="Segoe UI, Arial, sans-serif" font-size="17">- Inventory export</text>
+  <text x="514" y="362" fill="#A7C0D4" font-family="Segoe UI, Arial, sans-serif" font-size="17">- Full export payload</text>
+</g>
+
+<g filter="url(#shadow)">
+  <rect x="882" y="180" width="330" height="206" rx="24" fill="url(#panel)" stroke="#28506F"/>
+  <text x="914" y="224" fill="#9BD9FF" font-family="Segoe UI, Arial, sans-serif" font-size="24" font-weight="800">Encryption Layer</text>
+  <text x="914" y="266" fill="#A7C0D4" font-family="Segoe UI, Arial, sans-serif" font-size="17">- Password prompt</text>
+  <text x="914" y="298" fill="#A7C0D4" font-family="Segoe UI, Arial, sans-serif" font-size="17">- Key derivation</text>
+  <text x="914" y="330" fill="#A7C0D4" font-family="Segoe UI, Arial, sans-serif" font-size="17">- Fernet wrapper</text>
+  <text x="914" y="362" fill="#A7C0D4" font-family="Segoe UI, Arial, sans-serif" font-size="17">- `.encjson` output</text>
+</g>
+
+<g filter="url(#shadow)">
+  <rect x="1282" y="180" width="236" height="206" rx="24" fill="url(#panel)" stroke="#28506F"/>
+  <text x="1314" y="224" fill="#9BD9FF" font-family="Segoe UI, Arial, sans-serif" font-size="24" font-weight="800">Artifacts</text>
+  <text x="1314" y="266" fill="#A7C0D4" font-family="Segoe UI, Arial, sans-serif" font-size="17">- action.encjson</text>
+  <text x="1314" y="298" fill="#A7C0D4" font-family="Segoe UI, Arial, sans-serif" font-size="17">- inventory.encjson</text>
+  <text x="1314" y="330" fill="#A7C0D4" font-family="Segoe UI, Arial, sans-serif" font-size="17">- full_export.encjson</text>
+</g>
+
+<g filter="url(#shadow)">
+  <rect x="278" y="540" width="404" height="230" rx="24" fill="url(#panel)" stroke="#28506F"/>
+  <text x="310" y="584" fill="#9BD9FF" font-family="Segoe UI, Arial, sans-serif" font-size="24" font-weight="800">Config Files Tab</text>
+  <text x="310" y="626" fill="#A7C0D4" font-family="Segoe UI, Arial, sans-serif" font-size="17">- Browse config folder</text>
+  <text x="310" y="658" fill="#A7C0D4" font-family="Segoe UI, Arial, sans-serif" font-size="17">- Open / decrypt selected file</text>
+  <text x="310" y="690" fill="#A7C0D4" font-family="Segoe UI, Arial, sans-serif" font-size="17">- Edit JSON in text editor</text>
+  <text x="310" y="722" fill="#A7C0D4" font-family="Segoe UI, Arial, sans-serif" font-size="17">- Save as plaintext or encrypted</text>
+</g>
+
+<g filter="url(#shadow)">
+  <rect x="918" y="540" width="404" height="230" rx="24" fill="url(#panel)" stroke="#28506F"/>
+  <text x="950" y="584" fill="#9BD9FF" font-family="Segoe UI, Arial, sans-serif" font-size="24" font-weight="800">Reusability Outcomes</text>
+  <text x="950" y="626" fill="#A7C0D4" font-family="Segoe UI, Arial, sans-serif" font-size="17">- Repeatable VM actions</text>
+  <text x="950" y="658" fill="#A7C0D4" font-family="Segoe UI, Arial, sans-serif" font-size="17">- Inventory snapshots</text>
+  <text x="950" y="690" fill="#A7C0D4" font-family="Segoe UI, Arial, sans-serif" font-size="17">- Reconstruction-ready references</text>
+  <text x="950" y="722" fill="#A7C0D4" font-family="Segoe UI, Arial, sans-serif" font-size="17">- Portable, secured operator artifacts</text>
+</g>
+
+<path d="M412 283H470" stroke="#62A7D7" stroke-width="4" marker-end="url(#arrow)"/>
+<path d="M812 283H870" stroke="#62A7D7" stroke-width="4" marker-end="url(#arrow)"/>
+<path d="M1212 283H1270" stroke="#62A7D7" stroke-width="4" marker-end="url(#arrow)"/>
+<path d="M1400 386V500H1120" stroke="#62A7D7" stroke-width="4" marker-end="url(#arrow)"/>
+<path d="M1048 386V500H480" stroke="#62A7D7" stroke-width="4" marker-end="url(#arrow)"/>
+
+<g filter="url(#shadow)">
+  <rect x="580" y="822" width="456" height="74" rx="18" fill="#0D2336" stroke="#28506F"/>
+  <text x="612" y="866" fill="#CFE7F8" font-family="Segoe UI, Arial, sans-serif" font-size="20" font-weight="700">The config system turns live Azure data into secure, reusable automation artifacts</text>
+</g>
+</svg>

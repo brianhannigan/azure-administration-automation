@@ -1,0 +1,96 @@
+<svg width="1600" height="980" viewBox="0 0 1600 980" fill="none" xmlns="http://www.w3.org/2000/svg">
+<defs>
+  <linearGradient id="bg" x1="0" y1="0" x2="1600" y2="980">
+    <stop stop-color="#071523"/>
+    <stop offset="1" stop-color="#0B2740"/>
+  </linearGradient>
+  <linearGradient id="panel" x1="0" y1="0" x2="1" y2="1">
+    <stop stop-color="#112F48"/>
+    <stop offset="1" stop-color="#0C2134"/>
+  </linearGradient>
+  <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+    <feDropShadow dx="0" dy="12" stdDeviation="18" flood-color="#02111E" flood-opacity="0.45"/>
+  </filter>
+  <marker id="arrow" markerWidth="14" markerHeight="14" refX="11" refY="7" orient="auto">
+    <path d="M0,0 L14,7 L0,14 z" fill="#62A7D7"/>
+  </marker>
+</defs>
+<rect width="1600" height="980" rx="28" fill="url(#bg)"/>
+<text x="74" y="76" fill="white" font-family="Segoe UI, Arial, sans-serif" font-size="36" font-weight="800">Azure VM Manager — Architecture Overview</text>
+<text x="74" y="116" fill="#9EC2DD" font-family="Segoe UI, Arial, sans-serif" font-size="20">Desktop operator UI, Azure REST integration, encrypted config handling, and local/Azure scheduling pathways.</text>
+
+<g filter="url(#shadow)">
+  <rect x="76" y="170" width="430" height="260" rx="24" fill="url(#panel)" stroke="#28506F"/>
+  <text x="108" y="214" fill="#9BD9FF" font-family="Segoe UI, Arial, sans-serif" font-size="24" font-weight="800">Desktop Operator UI</text>
+  <text x="108" y="252" fill="#D9E7F2" font-family="Segoe UI, Arial, sans-serif" font-size="18">Tkinter / ttk application</text>
+  <rect x="108" y="280" width="166" height="34" rx="10" fill="#103652"/><text x="126" y="303" fill="white" font-family="Segoe UI, Arial, sans-serif" font-size="16">VMs tab</text>
+  <rect x="286" y="280" width="166" height="34" rx="10" fill="#103652"/><text x="304" y="303" fill="white" font-family="Segoe UI, Arial, sans-serif" font-size="16">Config Files tab</text>
+  <rect x="108" y="328" width="166" height="34" rx="10" fill="#103652"/><text x="126" y="351" fill="white" font-family="Segoe UI, Arial, sans-serif" font-size="16">Schedules tab</text>
+  <rect x="286" y="328" width="166" height="34" rx="10" fill="#103652"/><text x="304" y="351" fill="white" font-family="Segoe UI, Arial, sans-serif" font-size="16">Detail panel</text>
+  <text x="108" y="394" fill="#A7C0D4" font-family="Segoe UI, Arial, sans-serif" font-size="16">- Status icons and live row updates</text>
+  <text x="108" y="420" fill="#A7C0D4" font-family="Segoe UI, Arial, sans-serif" font-size="16">- JSON viewing, decrypt/open, save, save-as-encrypted</text>
+</g>
+
+<g filter="url(#shadow)">
+  <rect x="585" y="170" width="430" height="260" rx="24" fill="url(#panel)" stroke="#28506F"/>
+  <text x="617" y="214" fill="#9BD9FF" font-family="Segoe UI, Arial, sans-serif" font-size="24" font-weight="800">Application Services</text>
+  <text x="617" y="252" fill="#D9E7F2" font-family="Segoe UI, Arial, sans-serif" font-size="18">Internal engines behind the UI</text>
+  <rect x="617" y="280" width="168" height="34" rx="10" fill="#103652"/><text x="635" y="303" fill="white" font-family="Segoe UI, Arial, sans-serif" font-size="16">Azure auth</text>
+  <rect x="801" y="280" width="180" height="34" rx="10" fill="#103652"/><text x="819" y="303" fill="white" font-family="Segoe UI, Arial, sans-serif" font-size="16">REST request layer</text>
+  <rect x="617" y="328" width="168" height="34" rx="10" fill="#103652"/><text x="635" y="351" fill="white" font-family="Segoe UI, Arial, sans-serif" font-size="16">State polling</text>
+  <rect x="801" y="328" width="180" height="34" rx="10" fill="#103652"/><text x="819" y="351" fill="white" font-family="Segoe UI, Arial, sans-serif" font-size="16">Thread-safe UI updates</text>
+  <text x="617" y="394" fill="#A7C0D4" font-family="Segoe UI, Arial, sans-serif" font-size="16">- VM lifecycle actions</text>
+  <text x="617" y="420" fill="#A7C0D4" font-family="Segoe UI, Arial, sans-serif" font-size="16">- Full export builder and config payload builders</text>
+</g>
+
+<g filter="url(#shadow)">
+  <rect x="1094" y="170" width="430" height="260" rx="24" fill="url(#panel)" stroke="#28506F"/>
+  <text x="1126" y="214" fill="#9BD9FF" font-family="Segoe UI, Arial, sans-serif" font-size="24" font-weight="800">Azure Platform</text>
+  <text x="1126" y="252" fill="#D9E7F2" font-family="Segoe UI, Arial, sans-serif" font-size="18">REST endpoints used by the app</text>
+  <rect x="1126" y="280" width="170" height="34" rx="10" fill="#103652"/><text x="1144" y="303" fill="white" font-family="Segoe UI, Arial, sans-serif" font-size="16">Subscriptions API</text>
+  <rect x="1310" y="280" width="176" height="34" rx="10" fill="#103652"/><text x="1328" y="303" fill="white" font-family="Segoe UI, Arial, sans-serif" font-size="16">Compute VM API</text>
+  <rect x="1126" y="328" width="170" height="34" rx="10" fill="#103652"/><text x="1144" y="351" fill="white" font-family="Segoe UI, Arial, sans-serif" font-size="16">Instance View API</text>
+  <rect x="1310" y="328" width="176" height="34" rx="10" fill="#103652"/><text x="1328" y="351" fill="white" font-family="Segoe UI, Arial, sans-serif" font-size="16">Network API</text>
+  <text x="1126" y="394" fill="#A7C0D4" font-family="Segoe UI, Arial, sans-serif" font-size="16">- VM start / powerOff / delete</text>
+  <text x="1126" y="420" fill="#A7C0D4" font-family="Segoe UI, Arial, sans-serif" font-size="16">- NIC, public IP, subnet, NSG, VNet export context</text>
+</g>
+
+<g filter="url(#shadow)">
+  <rect x="145" y="560" width="470" height="286" rx="24" fill="url(#panel)" stroke="#28506F"/>
+  <text x="177" y="604" fill="#9BD9FF" font-family="Segoe UI, Arial, sans-serif" font-size="24" font-weight="800">Encrypted Config Engine</text>
+  <text x="177" y="642" fill="#D9E7F2" font-family="Segoe UI, Arial, sans-serif" font-size="18">Portable automation artifacts</text>
+  <rect x="177" y="676" width="198" height="34" rx="10" fill="#103652"/><text x="195" y="699" fill="white" font-family="Segoe UI, Arial, sans-serif" font-size="16">Start / stop config</text>
+  <rect x="389" y="676" width="190" height="34" rx="10" fill="#103652"/><text x="407" y="699" fill="white" font-family="Segoe UI, Arial, sans-serif" font-size="16">Inventory export</text>
+  <rect x="177" y="724" width="198" height="34" rx="10" fill="#103652"/><text x="195" y="747" fill="white" font-family="Segoe UI, Arial, sans-serif" font-size="16">Full VM export</text>
+  <rect x="389" y="724" width="190" height="34" rx="10" fill="#103652"/><text x="407" y="747" fill="white" font-family="Segoe UI, Arial, sans-serif" font-size="16">In-app JSON editor</text>
+  <text x="177" y="792" fill="#A7C0D4" font-family="Segoe UI, Arial, sans-serif" font-size="16">Encrypted `.encjson` wrappers with password-derived keys</text>
+</g>
+
+<g filter="url(#shadow)">
+  <rect x="707" y="560" width="470" height="286" rx="24" fill="url(#panel)" stroke="#28506F"/>
+  <text x="739" y="604" fill="#9BD9FF" font-family="Segoe UI, Arial, sans-serif" font-size="24" font-weight="800">Scheduling Layer</text>
+  <text x="739" y="642" fill="#D9E7F2" font-family="Segoe UI, Arial, sans-serif" font-size="18">Two-path automation model</text>
+  <rect x="739" y="676" width="190" height="34" rx="10" fill="#103652"/><text x="757" y="699" fill="white" font-family="Segoe UI, Arial, sans-serif" font-size="16">Local schedules</text>
+  <rect x="943" y="676" width="190" height="34" rx="10" fill="#103652"/><text x="961" y="699" fill="white" font-family="Segoe UI, Arial, sans-serif" font-size="16">Task registration</text>
+  <rect x="739" y="724" width="190" height="34" rx="10" fill="#103652"/><text x="757" y="747" fill="white" font-family="Segoe UI, Arial, sans-serif" font-size="16">Azure schedule deploy</text>
+  <rect x="943" y="724" width="190" height="34" rx="10" fill="#103652"/><text x="961" y="747" fill="white" font-family="Segoe UI, Arial, sans-serif" font-size="16">Enable / disable / remove</text>
+  <text x="739" y="792" fill="#A7C0D4" font-family="Segoe UI, Arial, sans-serif" font-size="16">Same operator workflow, two execution targets</text>
+</g>
+
+<g filter="url(#shadow)">
+  <rect x="1269" y="560" width="186" height="286" rx="24" fill="url(#panel)" stroke="#28506F"/>
+  <text x="1301" y="604" fill="#9BD9FF" font-family="Segoe UI, Arial, sans-serif" font-size="24" font-weight="800">Outcomes</text>
+  <text x="1301" y="652" fill="#A7C0D4" font-family="Segoe UI, Arial, sans-serif" font-size="17">Portal-light operations</text>
+  <text x="1301" y="690" fill="#A7C0D4" font-family="Segoe UI, Arial, sans-serif" font-size="17">Repeatable automation</text>
+  <text x="1301" y="728" fill="#A7C0D4" font-family="Segoe UI, Arial, sans-serif" font-size="17">Portable configs</text>
+  <text x="1301" y="766" fill="#A7C0D4" font-family="Segoe UI, Arial, sans-serif" font-size="17">Reconstruction-ready exports</text>
+</g>
+
+<path d="M506 300H565" stroke="#62A7D7" stroke-width="4" marker-end="url(#arrow)"/>
+<path d="M1015 300H1074" stroke="#62A7D7" stroke-width="4" marker-end="url(#arrow)"/>
+<path d="M506 690H665" stroke="#62A7D7" stroke-width="4" marker-end="url(#arrow)"/>
+<path d="M1177 690H1244" stroke="#62A7D7" stroke-width="4" marker-end="url(#arrow)"/>
+<path d="M820 430V520" stroke="#62A7D7" stroke-width="4" marker-end="url(#arrow)"/>
+<path d="M1278 430V520" stroke="#62A7D7" stroke-width="4" marker-end="url(#arrow)"/>
+
+</svg>

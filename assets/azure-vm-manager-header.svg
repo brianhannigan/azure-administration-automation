@@ -1,0 +1,67 @@
+<svg width="1600" height="420" viewBox="0 0 1600 420" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1600" y2="420" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#07111F"/>
+      <stop offset="0.55" stop-color="#0A2342"/>
+      <stop offset="1" stop-color="#0F3D74"/>
+    </linearGradient>
+    <linearGradient id="panel" x1="220" y1="90" x2="1380" y2="330" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#0F172A" stop-opacity="0.88"/>
+      <stop offset="1" stop-color="#111827" stop-opacity="0.72"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#38BDF8"/>
+      <stop offset="1" stop-color="#2563EB"/>
+    </linearGradient>
+    <filter id="shadow" x="0" y="0" width="1600" height="420" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feDropShadow dx="0" dy="14" stdDeviation="20" flood-color="#000000" flood-opacity="0.25"/>
+    </filter>
+  </defs>
+
+  <rect width="1600" height="420" rx="28" fill="url(#bg)"/>
+
+  <g opacity="0.18">
+    <circle cx="1410" cy="58" r="190" stroke="#7DD3FC" stroke-width="2"/>
+    <circle cx="1468" cy="22" r="120" stroke="#60A5FA" stroke-width="2"/>
+    <circle cx="128" cy="370" r="170" stroke="#38BDF8" stroke-width="2"/>
+  </g>
+
+  <g filter="url(#shadow)">
+    <rect x="110" y="70" width="1380" height="280" rx="26" fill="url(#panel)" stroke="rgba(255,255,255,0.12)"/>
+  </g>
+
+  <g>
+    <rect x="170" y="132" width="126" height="126" rx="26" fill="url(#accent)"/>
+    <path d="M229 152L184 232H218L208 292L283 201H243L257 152H229Z" fill="white" fill-opacity="0.96"/>
+    <circle cx="279" cy="242" r="18" fill="#18A558" stroke="#E5F9EE" stroke-width="4"/>
+  </g>
+
+  <g>
+    <text x="340" y="165" fill="white" font-family="Segoe UI, Arial, sans-serif" font-size="56" font-weight="700">Azure VM Manager</text>
+    <text x="342" y="212" fill="#C7D2FE" font-family="Segoe UI, Arial, sans-serif" font-size="24" font-weight="500">Desktop VM operations, encrypted config workflows, and scheduling automation</text>
+  </g>
+
+  <g>
+    <rect x="1025" y="116" width="380" height="190" rx="20" fill="#0B1220" stroke="#334155"/>
+    <text x="1060" y="150" fill="#E2E8F0" font-family="Consolas, Segoe UI Mono, monospace" font-size="18" font-weight="700">LIVE STATUS</text>
+
+    <circle cx="1082" cy="188" r="9" fill="#18A558"/>
+    <text x="1105" y="194" fill="#E5E7EB" font-family="Segoe UI, Arial, sans-serif" font-size="20">Running</text>
+
+    <circle cx="1082" cy="224" r="9" fill="#D93025"/>
+    <text x="1105" y="230" fill="#E5E7EB" font-family="Segoe UI, Arial, sans-serif" font-size="20">Stopped</text>
+
+    <circle cx="1082" cy="260" r="9" fill="#F9AB00"/>
+    <text x="1105" y="266" fill="#E5E7EB" font-family="Segoe UI, Arial, sans-serif" font-size="20">Transition</text>
+
+    <rect x="1260" y="174" width="112" height="38" rx="10" fill="#2563EB"/>
+    <text x="1287" y="199" fill="white" font-family="Segoe UI, Arial, sans-serif" font-size="18" font-weight="700">START</text>
+
+    <rect x="1260" y="224" width="112" height="38" rx="10" fill="#334155"/>
+    <text x="1294" y="249" fill="white" font-family="Segoe UI, Arial, sans-serif" font-size="18" font-weight="700">STOP</text>
+  </g>
+
+  <g opacity="0.35">
+    <path d="M0 345C160 300 276 285 401 297C554 313 666 380 823 385C983 389 1094 314 1266 299C1395 288 1496 301 1600 334V420H0V345Z" fill="#38BDF8"/>
+  </g>
+</svg>
