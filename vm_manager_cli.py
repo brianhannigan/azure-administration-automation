@@ -46,7 +46,7 @@ class AzureVmManagerCLI:
         self._authenticate()
         while True:
             self._print_menu()
-            choice = input("Select an action (1-8): ").strip()
+            choice = input("Select an action (1-9): ").strip()
             if choice == "1":
                 self.load_vms_interactive()
             elif choice == "2":
@@ -62,10 +62,12 @@ class AzureVmManagerCLI:
             elif choice == "7":
                 self.show_vm_details()
             elif choice == "8":
+                self.create_vm_interactive()
+            elif choice == "9":
                 print("\nGoodbye. Exiting Azure VM Manager CLI.")
                 return
             else:
-                print("\nInvalid selection. Enter a number from 1 to 8.")
+                print("\nInvalid selection. Enter a number from 1 to 9.")
 
     def _print_banner(self) -> None:
         print("=" * 78)
@@ -85,7 +87,8 @@ class AzureVmManagerCLI:
         print("5) Delete a VM")
         print("6) Export loaded VM inventory to JSON")
         print("7) Show VM details")
-        print("8) Exit")
+        print("8) Create a new VM")
+        print("9) Exit")
 
     def _authenticate(self) -> None:
         print("Authenticating with Azure using DefaultAzureCredential...")
@@ -245,6 +248,87 @@ class AzureVmManagerCLI:
         }
         path.write_text(json.dumps(payload, indent=2), encoding="utf-8")
         print(f"Inventory written to: {path}")
+
+    def create_vm_interactive(self) -> None:
+        print("\nCreate New VM")
+        print("-" * 30)
+        subscriptions = self._list_subscriptions()
+        if not subscriptions:
+            print("No enabled subscriptions found.")
+            return
+        for idx, sub in enumerate(subscriptions, start=1):
+            print(f"{idx:>3}. {sub.get('displayName', 'unknown')} ({sub.get('subscriptionId')})")
+        raw = input("Select subscription number (or press Enter to cancel): ").strip()
+        if not raw:
+            print("Cancelled.")
+            return
+        try:
+            selected_sub = subscriptions[int(raw) - 1]
+        except Exception:
+            print("Invalid subscription selection.")
+            return
+
+        subscription_id = selected_sub.get("subscriptionId", "").strip()
+        vm_name = input("VM name: ").strip()
+        resource_group = input("Resource group name: ").strip()
+        location = input("Location (e.g., eastus): ").strip()
+        vm_size = input("VM size [Standard_B2s]: ").strip() or "Standard_B2s"
+        admin_username = input("Admin username [azureuser]: ").strip() or "azureuser"
+        admin_password = input("Admin password: ").strip()
+        nic_id = input("Network interface resource ID: ").strip()
+        image_publisher = input("Image publisher [MicrosoftWindowsServer]: ").strip() or "MicrosoftWindowsServer"
+        image_offer = input("Image offer [WindowsServer]: ").strip() or "WindowsServer"
+        image_sku = input("Image SKU [2022-datacenter-azure-edition]: ").strip() or "2022-datacenter-azure-edition"
+        image_version = input("Image version [latest]: ").strip() or "latest"
+
+        required = {
+            "subscription_id": subscription_id,
+            "vm_name": vm_name,
+            "resource_group": resource_group,
+            "location": location,
+            "admin_password": admin_password,
+            "nic_id": nic_id,
+        }
+        missing = [key for key, value in required.items() if not value]
+        if missing:
+            print(f"Missing required values: {', '.join(missing)}")
+            return
+
+        vm_url = (
+            f"https://management.azure.com/subscriptions/{subscription_id}"
+            f"/resourceGroups/{resource_group}/providers/Microsoft.Compute/virtualMachines/{vm_name}"
+            f"?api-version={VM_API}"
+        )
+        body = {
+            "location": location,
+            "properties": {
+                "hardwareProfile": {"vmSize": vm_size},
+                "storageProfile": {
+                    "imageReference": {
+                        "publisher": image_publisher,
+                        "offer": image_offer,
+                        "sku": image_sku,
+                        "version": image_version,
+                    }
+                },
+                "osProfile": {
+                    "computerName": vm_name,
+                    "adminUsername": admin_username,
+                    "adminPassword": admin_password,
+                },
+                "networkProfile": {
+                    "networkInterfaces": [{"id": nic_id, "properties": {"primary": True}}],
+                },
+            },
+        }
+        print("\nAbout to submit VM creation request with the provided values.")
+        confirm = input(f"Create VM '{vm_name}' in resource group '{resource_group}'? Type YES to continue: ").strip()
+        if confirm != "YES":
+            print("Action cancelled.")
+            return
+
+        self._request("PUT", vm_url, json=body)
+        print("Create request accepted by Azure. Use option 1 to reload VM inventory.")
 
 
 if __name__ == "__main__":
